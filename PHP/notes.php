@@ -245,7 +245,7 @@ foreach ($my_duplicated_array as $i => $num) {
     $my_unonimous_variable = $my_unonimous_variable + $num;
 };
 
-// iterate ove associative array
+// iterate over associative array
 
 foreach ($person as $key => $value) {
     if (is_array($value)) {
@@ -347,3 +347,97 @@ date_parse('2020-10-12 09:00:00'); // parse date -> returns associative array wi
 
 $date_str = "February 4 2020 12:45:35";
 $parsed_date = date_parse_from_format('F j Y H:i:s', $date_str);
+
+///////////////////////
+// 8.0 File Systems //
+/////////////////////
+
+__DIR__; // current directory
+__FILE__; // file path where __FILE__ is called
+__LINE__; // line num where __LINE__ is called
+
+
+mkdir("new foldrer"); // create dir
+rename("new folder", "new foldrer 2"); // rename dir
+rmdir("new folder 2"); // delete dir
+
+scandir("./"); // shows all the files and folders in specified path directory
+file_get_contents("lorem.txt"); // read file
+file_put_contents("sample.txt", "hello this is sample.txt file"); // write files
+$users = file_get_contents("https://jsonplaceholder/users");
+json_decode($users, true); // parse json -> true converts in to associative array
+file_exists("sample.txt"); // checks if file exists
+is_dir("new folder"); // checks if directory exists
+
+///////////////
+// 9.0 OOP //
+////////////
+
+class Person
+{
+    public string $name;
+    public string $surname;
+    private ?int $age;
+    /* 
+    private properties could not be accessed from outside the class,
+    even from extended classes. But Could be accessed 
+    from setter  and getter functions of this class;
+    */
+    protected int $id;
+    /* 
+    protected properties could not be accessed from outside the class,
+    But Could be accessed from extennded class and even setter and getter functions of this class;
+    */
+
+    public static int $counter = 0;
+    /**
+     static properties belongs only class itself, not  instances created from this class.
+     f.e we  increase $counter propertie every time when instance is created and then from the outside we check Person::$counter 
+     this will show us number wich one describes how many instance is created  from this class.
+     inside the class if we  want to access this property we use self::$counter
+     */
+
+    public function __construct($name, $surname)
+    {
+        $this->name = $name;
+        $this->surname = $surname;
+        self::$counter++;
+    }
+
+    public function setAge($age)
+    {
+        $this->age = $age;
+    }
+
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    public static function getCounter()
+    {
+        return self::$counter;
+    }
+}
+
+$person = new Person("John", "Rusieshvili");
+$person_name = $person->name;
+$person->name = "Johnny";
+
+$person->setAge(27);
+$person_age = $person->getAge();
+
+$users_count = Person::$counter;
+
+class Student extends Person
+{
+    public string $degree;
+
+    public function __construct($name, $surname, $degree)
+    {
+        parent::__construct($name, $surname);
+        $this->degree = $degree;
+    }
+}
+
+$student = new Student("Student", "Studentovich", "Bachelor");
