@@ -1,0 +1,122 @@
+{
+    "console.log": {
+        "prefix": "clg",
+        "body": [
+            "console.log($1);"
+        ],
+        "description": "Log output to console"
+    },
+    "custom.console.log": {
+        "prefix": "cclg",
+        "body": [
+            "console.log(`%c${${1:'content'}}`, `background: ${2:royalblue}; color: ${3:white}`)"
+        ],
+        "description": "Log output to console"
+    },
+    "export react functional component": {
+        "prefix": "rfce",
+        "body": [
+            "function ${1:$TM_FILENAME_BASE}(${2:props}){",
+            "",
+            "return <div>${1:$TM_FILENAME_BASE}</div>",
+            "}",
+            "",
+            "export default ${1:$TM_FILENAME_BASE}"
+        ]
+    },
+    "export react functional component with import react": {
+        "prefix": "rfcet",
+        "body": [
+            "import React from 'react'",
+            "",
+            "interface $TM_FILENAME_BASE$Type{}",
+            "",
+            "const ${1:$TM_FILENAME_BASE}:React.FC<$TM_FILENAME_BASE$Type>=(${2:props})=>{",
+            "",
+            "return <div>${1:$TM_FILENAME_BASE}</div>",
+            "}",
+            "",
+            "export default ${1:$TM_FILENAME_BASE}"
+        ]
+    },
+    "module.className": {
+        "prefix": "cls",
+        "body": [
+            "className={styles.$1}"
+        ],
+        "description": "write className attrubute for css module"
+    },
+    "module.className with brackets": {
+        "prefix": "clss",
+        "body": [
+            "className={styles['$1']}"
+        ],
+        "description": "write className attrubute for css module"
+    },
+    "styled components theme prop function": {
+        "prefix": "scf",
+        "body": [
+            "${({theme})=>theme$1}"
+        ],
+        "description": "write function in styled components"
+    },
+    "styled components expresion brackets": {
+        "prefix": "sx",
+        "body": [
+            "${$1}"
+        ],
+        "description": "write expresion brackets in template literal"
+    },
+    "redux toolkit config typescript": {
+        "prefix": "rxt",
+        "body": [
+            "import {createSlice, PayloadAction} from '@reduxjs/toolkit'",
+            "",
+            "const initialState={}",
+            "",
+            "const ${1:name}$Slice = createSlice({",
+            "name:'${1:name}',",
+            "initialState,",
+            "reducers:{}",
+            "})",
+            "",
+            "export default ${1:name}$Slice.reducer",
+            "export const {} = ${1:name}Slice.actions"
+        ],
+        "description": "write redux toolkit start config"
+    },
+    "redux toolkit config": {
+        "prefix": "rx",
+        "body": [
+            "import {createSlice} from '@reduxjs/toolkit'",
+            "",
+            "const initialState={}",
+            "",
+            "const ${1:name}$Slice = createSlice({",
+            "name:'${1:name}',",
+            "initialState,",
+            "reducers:{}",
+            "})",
+            "",
+            "export default ${1:name}$Slice.reducer",
+            "export const {} = ${1:name}Slice.actions"
+        ],
+        "description": "write redux toolkit start config"
+    },
+    "redux-saga config": {
+        "prefix": "rxs",
+        "body": [
+            "import {takeLatest} from 'redux-saga/effects'",
+            "",
+            "export default function* ${1:name}Saga(){}"
+        ],
+        "description": "write redux saga start config"
+    },
+    "vue template expression": {
+        "prefix": "vx",
+        "body": [
+            "{{$$1}}"
+        ],
+        "description": "write vue curley braces"
+    }
+}

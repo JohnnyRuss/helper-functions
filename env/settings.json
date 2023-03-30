@@ -1,0 +1,129 @@
+{
+    "workbench.colorTheme": "Deep Ocean",
+  
+    "workbench.iconTheme": "material-icon-theme",
+    
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+  
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+  
+    "[json]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+  
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+  
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+  
+    "[scss]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+  
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+  
+    "git.enableSmartCommit": true,
+  
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+  
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+  
+    "todohighlight.isEnable": true,
+  
+    "todohighlight.isCaseSensitive": true,
+  
+    "todohighlight.keywords": [
+      {
+        "text": "SECTION:",
+        "backgroundColor": "#044040",
+        "color": "#fff",
+        "border": "1px solid #fff",
+        "borderRadius": "2px",
+        "isWholeLine": true
+      },
+      {
+        "text": "SECTION-RELATED:",
+        "backgroundColor": "#038C65",
+        "color": "#fff",
+        "border": "1px solid #fff",
+        "borderRadius": "2px",
+        "isWholeLine": true
+      },
+      {
+        "text": "SECTION-SUB-RELATED:",
+        "backgroundColor": "#591C21",
+        "color": "#fff",
+        "border": "1px solid #fff",
+        "borderRadius": "2px",
+        "isWholeLine": true
+      }
+    ],
+  
+    "todohighlight.include": [
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.html",
+      "**/*.php",
+      "**/*.css",
+      "**/*.scss"
+    ],
+  
+    "[css]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+  
+    "css.lint.unknownAtRules": "ignore",
+  
+    "editor.inlayHints.enabled": "off",
+  
+    "workbench.colorCustomizations": {
+      "editor.lineHighlightBackground": "#1073cf2d",
+      "editor.lineHighlightBorder": "#9fced11f"
+    },
+  
+    "editor.wordWrap": "off",
+  
+    "diffEditor.wordWrap": "off",
+  
+    "editor.guides.indentation": false,
+  
+    "editor.guides.bracketPairs": false,
+  
+    "window.menuBarVisibility": "compact",
+  
+    "update.enableWindowsBackgroundUpdates": false,
+  
+    "update.mode": "none",
+  
+    "vetur.ignoreProjectWarning": false,
+  
+    "vetur.validation.template": false,
+  
+    "vetur.validation.script": true,
+  
+    "vetur.validation.style": true,
+  
+    "[vue]": {
+      "editor.defaultFormatter": "octref.vetur"
+    },
+    "[php]": {
+      "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+    "[blade]": {
+      "editor.defaultFormatter": "shufo.vscode-blade-formatter"
+    }
+  }
+  
