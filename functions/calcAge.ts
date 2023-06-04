@@ -1,3 +1,11 @@
-function calcAge(date = new Date("02-28-1996")): number {
-  return Math.abs(new Date(Date.now() - date.getTime()).getFullYear() - 1970);
-}
+type CalcAgeT = (date: string | Date) => number;
+
+const calcAge: CalcAgeT = (date) => {
+  const dateToFormat = date instanceof Date ? date : new Date(date);
+
+  return Math.abs(
+    new Date(Date.now() - dateToFormat.getTime()).getFullYear() - 1970
+  );
+};
+
+export default calcAge;

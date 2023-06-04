@@ -2,9 +2,10 @@
 import { useState, useEffect } from "react";
 
 /**
- * This custom hook attachs  the onClick event on the body to close modal windows on bodyClick. To do this, useBlurOnBody hook uses useState hook with the property blur, which one by default is true.
+ * This custom hook attachs the onClick event on the body to close modal windows on bodyClick. To do this, useBlurOnBody hook uses useState hook with the property blur, which one by default is true.
  * onClick event will be attached on the body only if 'blur' is false, and blur can be changed from the onFocus function which is returned from this hook.
- * Whenever onFocus function be executed local state "blur" will be changed from true to false, and body event will be attached. And now if you want to prevent some elements from onBodyClick event you can pass these elements classNames as a prop as an array of strings and the elements will be excluded.
+ * Whenever onFocus function be executed local state "blur" will be changed from true to false, and body event will be attached.
+ * And now if you want to prevent some elements from onBodyClick event you can pass these elements classNames as a prop as an array of strings and the elements will be excluded.
  * @param {*} handleOnFocus handleOnFocus function will be executed into the onFocus function body. With help of this prop you can execute as many order as you want whenever the onFocus event occurs
  * @param {*} handleOnBlur function will be executed into the onnBodyClick function, so with help of this props you can execute as many order as you want after 'blur' state changed back to true (so on modal close)
  * @param {*} excludeElCls must be the string array, classnames of elements which u want to exlude on body click
@@ -29,7 +30,7 @@ function useBlurOnBody(handleOnFocus, handleOnBlur, excludeElCls) {
     if (excludeElCls.some((cls) => e.target.closest(`.${cls}`))) return;
     removeListener();
     setBlur(true);
-    handleOnBlur();
+    handleOnBlur && handleOnBlur();
   }
 
   useEffect(() => {
@@ -37,6 +38,11 @@ function useBlurOnBody(handleOnFocus, handleOnBlur, excludeElCls) {
       document
         .querySelector("body")
         .addEventListener("click", onBodyClick, true);
+
+    return () => {
+      removeListener();
+      setBlur(true);
+    };
   }, [blur]);
 
   return { blur, onFocus, removeListener };

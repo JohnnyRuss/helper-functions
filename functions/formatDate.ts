@@ -4,7 +4,12 @@ interface ConfigsT {
   verbalWithHours: Intl.DateTimeFormatOptions;
 }
 
-const configs:ConfigsT = {
+type FormatDateArgsT = (args: {
+  dateToFormat: Date | string;
+  config: "shortNumeric" | "verbal" | "verbalWithHours";
+}) => string | null;
+
+const configs: ConfigsT = {
   shortNumeric: {
     day: "2-digit",
     month: "2-digit",
@@ -24,10 +29,7 @@ const configs:ConfigsT = {
   },
 };
 
-export default function formatDate(
-  dateToFormat: Date | string,
-  config: "shortNumeric" | "verbal" | "verbalWithHours"
-): string | null {
+const formatDate: FormatDateArgsT = ({ config, dateToFormat }) => {
   if (!dateToFormat) return null;
 
   const date = new Date(dateToFormat);
@@ -38,4 +40,6 @@ export default function formatDate(
   )?.format(date);
 
   return formattedDate.split("/").join("-");
-}
+};
+
+export default formatDate;
